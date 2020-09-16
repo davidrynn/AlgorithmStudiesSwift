@@ -9,8 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
+  let algorithms = Algorithms()
+  let algorithmsArray: [AlgorithmItem] = [Quicksort(), ConvertRomanNumerals(), PalindromeNumberCheck()]
     var body: some View {
-        Text("Hello, World!")
+      NavigationView {
+      List(algorithmsArray, id: \.id) { item in
+        NavigationLink(destination: Text(item.getAlgorithmOutput(self.algorithms)) ) {
+          Text(item.id)
+        }
+      }
+      }
+    .navigationBarTitle("Algorithms")
     }
 }
 
