@@ -288,39 +288,35 @@ struct PalindromeNumberCheck: AlgorithmItem {
  Nodes
  */
 
-protocol Node {
-  associatedtype T
-  var value: T { get }
-}
 
-class ListNode<T>:Node {
-  var value: T
-  let next: ListNode?
-
-  init(_ value: T, next: ListNode?) {
-    self.value = value
-    self.next = next
-  }
-}
-
-struct LinkedList<T> {
-  let head: ListNode<T>
-}
-
-class BinaryTreeNode<T>: Node {
-  var value: T
-
-  let left: BinaryTreeNode?
-  let right: BinaryTreeNode?
-
-  init(_ value: T, left: BinaryTreeNode?, right: BinaryTreeNode?) {
-    self.value = value
-    self.left = left
-    self.right = right
-  }
-}
-
-struct BinaryTree<T> {
-  let head: BinaryTreeNode<T>
-}
+//class ListNode:Node {
+//  var value: Int
+//  let next: ListNode?
+//
+//  init(_ value: Int, next: ListNode?) {
+//    self.value = value
+//    self.next = next
+//  }
+//}
+//
+//struct LinkedList {
+//  let head: ListNode
+//}
+//
+//class BinaryTreeNode: Node {
+//  var value: Int
+//
+//  let left: BinaryTreeNode?
+//  let right: BinaryTreeNode?
+//
+//  init(_ value: Int, left: BinaryTreeNode?, right: BinaryTreeNode?) {
+//    self.value = value
+//    self.left = left
+//    self.right = right
+//  }
+//}
+//
+//struct BinaryTree {
+//  let head: BinaryTreeNode
+//}
 

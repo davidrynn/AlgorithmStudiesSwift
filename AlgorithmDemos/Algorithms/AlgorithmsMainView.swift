@@ -1,14 +1,14 @@
 //
-//  ContentView.swift
+//  AlgorithmsMainView.swift
 //  AlgorithmDemos
 //
-//  Created by David Rynn on 6/29/20.
+//  Created by David Rynn on 9/23/20.
 //  Copyright © 2020 David Rynn. All rights reserved.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct AlgorithmsMainView: View {
   let algorithms = Algorithms()
   let algorithmsArray: [AlgorithmItem] = [Quicksort(algorithms: Algorithms()), ConvertRomanNumerals(algorithms: Algorithms()), PalindromeNumberCheck(algorithms: Algorithms()), BubbleSort(algorithms: Algorithms())]
     var body: some View {
@@ -20,11 +20,12 @@ struct ContentView: View {
       }
       }
     .navigationBarTitle("Algorithms")
+
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AlgorithmsMain_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AlgorithmsMainView()
     }
 }
