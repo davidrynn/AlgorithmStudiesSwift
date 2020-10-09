@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct TreeContentView: View {
-  @State var treeNode: TreeNode
+  @State var treeNode: TreeNode = TreeNode(value: 0)
   @State private var showingSheet = false
 
   var body: some View {
@@ -22,7 +22,19 @@ struct TreeContentView: View {
       .actionSheet(isPresented: $showingSheet) {
           ActionSheet(title: Text("What do you want to do?"), message: Text("There's only one choice..."), buttons: [.default(Text("Dismiss Action Sheet"))])
       }
-      TreeDiagram(treeNode: treeNode)
+      TreeDiagram(treeNodeView: TreeNodeView(treeNode: treeNode))
+    }.onAppear {
+      treeNode = TreeNode(value: 50, children: [
+        TreeNode(value: 17, children: [
+          TreeNode(value: 12),
+          TreeNode(value: 23),
+          TreeNode(value: 13)
+        ]),
+        TreeNode(value: 72, children: [
+          TreeNode(value: 54),
+          TreeNode(value: 72)
+        ])
+      ])
     }
   }
 }

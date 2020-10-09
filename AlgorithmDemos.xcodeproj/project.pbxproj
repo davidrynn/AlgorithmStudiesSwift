@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		22445507251E63E7005A5816 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22445506251E63E7005A5816 /* Edge.swift */; };
+		2244550C251E6BAA005A5816 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244550B251E6BAA005A5816 /* BinaryTree.swift */; };
+		2244550F251E7184005A5816 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244550E251E7183005A5816 /* TestView.swift */; };
+		22484FC22530DE5C008E96C8 /* AlgorithmItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22484FC12530DE5C008E96C8 /* AlgorithmItemProtocol.swift */; };
+		225C8EAE251EC1BF0098D3F3 /* TestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C8EAD251EC1BF0098D3F3 /* TestView2.swift */; };
 		2260563E251921AF0041D0F0 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260563D251921AF0041D0F0 /* TreeNode.swift */; };
 		22605642251922150041D0F0 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22605641251922150041D0F0 /* Node.swift */; };
 		22605645251926440041D0F0 /* TreeDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22605644251926440041D0F0 /* TreeDiagram.swift */; };
@@ -31,6 +35,10 @@
 
 /* Begin PBXFileReference section */
 		22445506251E63E7005A5816 /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
+		2244550B251E6BAA005A5816 /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
+		2244550E251E7183005A5816 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		22484FC12530DE5C008E96C8 /* AlgorithmItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmItemProtocol.swift; sourceTree = "<group>"; };
+		225C8EAD251EC1BF0098D3F3 /* TestView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView2.swift; sourceTree = "<group>"; };
 		2260563D251921AF0041D0F0 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		22605641251922150041D0F0 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		22605644251926440041D0F0 /* TreeDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeDiagram.swift; sourceTree = "<group>"; };
@@ -68,6 +76,9 @@
 		22BB1D3F251B022D0084399B /* Data_Structrures */ = {
 			isa = PBXGroup;
 			children = (
+				2244550B251E6BAA005A5816 /* BinaryTree.swift */,
+				2244550E251E7183005A5816 /* TestView.swift */,
+				225C8EAD251EC1BF0098D3F3 /* TestView2.swift */,
 				22EAB89F251BC7AF001C0120 /* BinaryTreeNode.swift */,
 				22EAB896251BC39F001C0120 /* DataStructuresMainView.swift */,
 				22445506251E63E7005A5816 /* Edge.swift */,
@@ -127,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				22BB2DE124AA9B7B0064948C /* Algorithms.swift */,
+				22484FC12530DE5C008E96C8 /* AlgorithmItemProtocol.swift */,
 				2299EC30251501DF00E20149 /* AlgorithmDetail.swift */,
 				22EAB893251BC1BB001C0120 /* AlgorithmsMainView.swift */,
 			);
@@ -211,6 +223,7 @@
 				22605642251922150041D0F0 /* Node.swift in Sources */,
 				22EAB897251BC39F001C0120 /* DataStructuresMainView.swift in Sources */,
 				22EAB894251BC1BB001C0120 /* AlgorithmsMainView.swift in Sources */,
+				225C8EAE251EC1BF0098D3F3 /* TestView2.swift in Sources */,
 				22445507251E63E7005A5816 /* Edge.swift in Sources */,
 				22BB1D302519720C0084399B /* TreeContentView.swift in Sources */,
 				22BB2DE024AA9B380064948C /* MeetingsMerge.swift in Sources */,
@@ -218,8 +231,11 @@
 				22EAB8A0251BC7AF001C0120 /* BinaryTreeNode.swift in Sources */,
 				22BB2DE224AA9B7B0064948C /* Algorithms.swift in Sources */,
 				2299EC31251501DF00E20149 /* AlgorithmDetail.swift in Sources */,
+				2244550C251E6BAA005A5816 /* BinaryTree.swift in Sources */,
+				2244550F251E7184005A5816 /* TestView.swift in Sources */,
 				22BB2DD024AA91020064948C /* TopView.swift in Sources */,
 				22605645251926440041D0F0 /* TreeDiagram.swift in Sources */,
+				22484FC22530DE5C008E96C8 /* AlgorithmItemProtocol.swift in Sources */,
 				22EAB89B251BC51B001C0120 /* TreeNodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,7 +376,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AlgorithmDemos/Preview Content\"";
-				DEVELOPMENT_TEAM = 39GB2BC79F;
+				DEVELOPMENT_TEAM = 3KR65ZULS9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AlgorithmDemos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -380,7 +396,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AlgorithmDemos/Preview Content\"";
-				DEVELOPMENT_TEAM = 39GB2BC79F;
+				DEVELOPMENT_TEAM = 3KR65ZULS9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AlgorithmDemos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

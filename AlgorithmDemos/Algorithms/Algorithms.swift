@@ -217,18 +217,15 @@ struct Algorithms {
   }
 }
 
-protocol AlgorithmItem {
-  var id: String { get }
-  var algorithms: Algorithms { get }
-  func getAlgorithmOutput() -> String
-}
+
 
 struct Quicksort: AlgorithmItem {
   var id = "Quicksort"
   var algorithms: Algorithms
 
-  func getAlgorithmOutput() -> String {
-    let qsarray = [ 10, 80, 30, 90, 40, 50, 70 ]
+  func getAlgorithmOutput(input: [Int]) -> String {
+    let qsarray = input
+      //[ 10, 80, 30, 90, 40, 50, 70 ]
     let firstPart = qsarray.debugDescription
     let ordered = algorithms.quickSort(qsarray, iterations: 0)
     let secondPart = ordered.array.debugDescription
@@ -242,24 +239,26 @@ struct Quicksort: AlgorithmItem {
 }
 
 struct BubbleSort: AlgorithmItem {
+
   var id = "Bubble Sort"
   var algorithms: Algorithms
 
-  func getAlgorithmOutput() -> String {
-    let unordered = [ 90, 80, 70, 50, 40, 30, 10 ]
+  func getAlgorithmOutput(input: [Int]) -> String {
+    let unordered = input
     let ordered = algorithms.bubbleSort(unordered: unordered)
-    var iterationsString = "Worst Case with \(unordered):\n"
+    guard input.count > 1 else { return input.description }
+    var iterationsString = "Iterations \(unordered):\n"
     (0...(ordered.iterations.count - 1)).forEach {
       iterationsString += "\nIteration \($0 + 1): \(ordered.iterations[$0])"
     }
-    let unordered2 = [ 10, 30, 40, 50, 70, 80, 90]
-    let ordered2 = algorithms.bubbleSort(unordered: unordered2)
-    var iterationsString2 = "\n\nBest Case with \(unordered2):\n"
-    (0...(ordered2.iterations.count - 1)).forEach {
-      iterationsString2 += "\nIteration \($0 + 1): \(ordered2.iterations[$0])"
-    }
+//    let unordered2 = [ 10, 30, 40, 50, 70, 80, 90]
+//    let ordered2 = algorithms.bubbleSort(unordered: unordered2)
+//    var iterationsString2 = "\n\nBest Case with \(unordered2):\n"
+//    (0...(ordered2.iterations.count - 1)).forEach {
+//      iterationsString2 += "\nIteration \($0 + 1): \(ordered2.iterations[$0])"
+//    }
 
-    return iterationsString + iterationsString2
+    return iterationsString
   }
 }
 
@@ -267,7 +266,7 @@ struct ConvertRomanNumerals: AlgorithmItem {
   var id = "Convert Roman Numerals"
   var algorithms: Algorithms
 
-  func getAlgorithmOutput() -> String {
+  func getAlgorithmOutput(input: [Int]) -> String {
     return "IV is " + algorithms.convertRoman("IV").description
   }
 
@@ -277,7 +276,7 @@ struct PalindromeNumberCheck: AlgorithmItem {
   var id: String = "Check if a number is a palindrome"
   var algorithms: Algorithms
 
-  func getAlgorithmOutput() -> String {
+  func getAlgorithmOutput(input: [Int]) -> String {
     let number = 211232112
     let isPalindrome: String = algorithms.isPalindromeNumber(211232112) ? "a palindrome" : "not a palindrome"
     return "\(number) is \(isPalindrome)"

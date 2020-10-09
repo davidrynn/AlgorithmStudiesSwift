@@ -9,8 +9,13 @@
 import SwiftUI
 
 struct DataStructuresMainView: View {
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List() {
+          NavigationLink("Tree", destination: TreeContentView())
+          NavigationLink("Test 1", destination: TestView())
+          NavigationLink("Test 2", destination: TestView2())
+        }
     }
 }
 

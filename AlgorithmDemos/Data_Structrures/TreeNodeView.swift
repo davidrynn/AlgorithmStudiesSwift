@@ -9,9 +9,13 @@
 import SwiftUI
 
 struct TreeNodeView: View {
-  let value: Int
+  let treeNode: TreeNode
+  
+  @State var isSelected = false
+  @State private var animationAmount: CGFloat = 1
+
   var body: some View {
-    Text(String(value))
+    Text(String(treeNode.value))
       .frame(width: Constants.nodeRadius,
              height: Constants.nodeRadius,
              alignment: .center)
@@ -20,12 +24,16 @@ struct TreeNodeView: View {
                     .fill(Color.white))
       .padding(1)
       .background(Circle()
-                    .stroke(Color.black, lineWidth: 2))
+                    .stroke(
+                      self.isSelected ? Color.red : Color.black,
+                      lineWidth: 3
+                    )
+      )
   }
 }
 
 struct TreeNodeView_Previews: PreviewProvider {
   static var previews: some View {
-    TreeNodeView(value: 10)
+    TreeNodeView(treeNode: TreeNode(value: 10))
   }
 }

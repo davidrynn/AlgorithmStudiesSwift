@@ -12,12 +12,10 @@ struct AlgorithmsMainView: View {
   let algorithms = Algorithms()
   let algorithmsArray: [AlgorithmItem] = [Quicksort(algorithms: Algorithms()), ConvertRomanNumerals(algorithms: Algorithms()), PalindromeNumberCheck(algorithms: Algorithms()), BubbleSort(algorithms: Algorithms())]
     var body: some View {
-      NavigationView {
       List(algorithmsArray, id: \.id) { item in
         NavigationLink(destination: AlgorithmDetail(item: item) ) {
           Text(item.id)
         }
-      }
       }
     .navigationBarTitle("Algorithms")
 
