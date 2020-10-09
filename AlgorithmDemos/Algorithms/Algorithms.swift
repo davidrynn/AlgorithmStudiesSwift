@@ -225,7 +225,6 @@ struct Quicksort: AlgorithmItem {
 
   func getAlgorithmOutput(input: [Int]) -> String {
     let qsarray = input
-      //[ 10, 80, 30, 90, 40, 50, 70 ]
     let firstPart = qsarray.debugDescription
     let ordered = algorithms.quickSort(qsarray, iterations: 0)
     let secondPart = ordered.array.debugDescription
@@ -243,22 +242,19 @@ struct BubbleSort: AlgorithmItem {
   var id = "Bubble Sort"
   var algorithms: Algorithms
 
-  func getAlgorithmOutput(input: [Int]) -> String {
-    let unordered = input
+  func getAlgorithmOutput(input: [String]) -> String {
+    let unordered = Helpers
     let ordered = algorithms.bubbleSort(unordered: unordered)
     guard input.count > 1 else { return input.description }
     var iterationsString = "Iterations \(unordered):\n"
     (0...(ordered.iterations.count - 1)).forEach {
       iterationsString += "\nIteration \($0 + 1): \(ordered.iterations[$0])"
     }
-//    let unordered2 = [ 10, 30, 40, 50, 70, 80, 90]
-//    let ordered2 = algorithms.bubbleSort(unordered: unordered2)
-//    var iterationsString2 = "\n\nBest Case with \(unordered2):\n"
-//    (0...(ordered2.iterations.count - 1)).forEach {
-//      iterationsString2 += "\nIteration \($0 + 1): \(ordered2.iterations[$0])"
-//    }
 
     return iterationsString
+  }
+  func validateInput(_ input: Any) -> Bool {
+    return Helpers.validateStringAsInteger(input)
   }
 }
 
@@ -282,40 +278,3 @@ struct PalindromeNumberCheck: AlgorithmItem {
     return "\(number) is \(isPalindrome)"
   }
 }
-
-/*
- Nodes
- */
-
-
-//class ListNode:Node {
-//  var value: Int
-//  let next: ListNode?
-//
-//  init(_ value: Int, next: ListNode?) {
-//    self.value = value
-//    self.next = next
-//  }
-//}
-//
-//struct LinkedList {
-//  let head: ListNode
-//}
-//
-//class BinaryTreeNode: Node {
-//  var value: Int
-//
-//  let left: BinaryTreeNode?
-//  let right: BinaryTreeNode?
-//
-//  init(_ value: Int, left: BinaryTreeNode?, right: BinaryTreeNode?) {
-//    self.value = value
-//    self.left = left
-//    self.right = right
-//  }
-//}
-//
-//struct BinaryTree {
-//  let head: BinaryTreeNode
-//}
-

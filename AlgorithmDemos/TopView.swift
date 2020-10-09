@@ -13,8 +13,11 @@ struct TopView: View {
     var body: some View {
       NavigationView {
         List() {
+          NavigationLink(destination: ProblemsMain()) {
+            Text("Algorithm Problems")
+          }
           NavigationLink(destination: AlgorithmsMainView()) {
-            Text("Algorithms")
+            Text("Sorting Algorithms")
           }
           NavigationLink(
             destination: DataStructuresMainView() ,

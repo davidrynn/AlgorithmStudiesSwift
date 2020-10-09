@@ -12,30 +12,50 @@ struct AlgorithmDetail: View {
   var item: AlgorithmItem
   @State var outputText: String = "calculating..."
   @State var isShowingAlert = true
-  @State var currentArray: [Int] = []
+  @State var currentArray: [String] = []
   @State var inputText = ""
-    var body: some View {
-      VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-        TextField("Input an Int", text: $inputText, onCommit: {
-          if let valid = Int(inputText) {
-            currentArray.append(valid)
-            outputText = item.getAlgorithmOutput(input: currentArray)
-          } else {
-            outputText = "Invalid Integer, please try again"
-          }
-        }).fixedSize()
-        Text(self.currentArray.debugDescription)
-      Text(outputText)
+  var body: some View {
+    VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 40) {
+      HStack(alignment: .center, spacing: 20) {
+        Button("Calculate") {
+          outputText = item.getAlgorithmOutput(input: currentArray)
+        }
+        .padding()
+        .foregroundColor(.green)
+        .border(Color.green)
+        Button("Delete Last") {
+          currentArray.removeLast()
+        }
+        .padding()
+        .foregroundColor(.red)
+        .border(Color.red)
+        Button("Clear") {
+          currentArray = []
+        }
+        .padding()
+        .foregroundColor(.blue)
+        .border(Color.blue)
+        
       }
-//      .textFieldAlert(isShowing: isShowingAlert, text: inputText, title: "Input an unsorted array", buttonAction: {
-//        let input = inputText.components(separatedBy: ",").compactMap { Int($0) }
-//        self.outputText = item.getAlgorithmOutput(input: input)
-//      })
+      TextField("Input a value", text: $inputText, onCommit: {
+        if item.validateInput(_input: inputText) {
+          currentArray.append(inputText)
+        } else {
+          outputText = "Invalid Integer, please try again"
+        }
+      })
+      .fixedSize()
+      .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+      .padding()
+      Text("Current input: " + self.currentArray.debugDescription)
+      Text("Final: " + outputText)
     }
+    
+  }
 }
 
 struct AlgorithmDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        AlgorithmDetail(item: Quicksort(algorithms: Algorithms()))
-    }
+  static var previews: some View {
+    AlgorithmDetail(item: Quicksort(algorithms: Algorithms()))
+  }
 }
