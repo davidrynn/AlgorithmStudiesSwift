@@ -13,7 +13,7 @@ struct AlgorithmsMainView: View {
   let algorithmsArray: [AlgorithmItem] = [Quicksort(algorithms: Algorithms()),   BubbleSort(algorithms: Algorithms())]
   var body: some View {
     List(algorithmsArray, id: \.id) { item in
-      NavigationLink(destination: AlgorithmDetail(item: item) ) {
+      NavigationLink(destination: AlgorithmDetail(item: item, title: item.id) ) {
         Text(item.id)
       }
     }

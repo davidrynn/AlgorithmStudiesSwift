@@ -10,7 +10,8 @@ import SwiftUI
 
 struct AlgorithmDetail: View {
   var item: AlgorithmItem
-  @State var outputText: String = "calculating..."
+  let title: String
+  @State var outputText: String = "When ready, press \"Calculate\" button"
   @State var isShowingAlert = true
   @State var currentArray: [String] = []
   @State var inputText = ""
@@ -24,13 +25,17 @@ struct AlgorithmDetail: View {
         .foregroundColor(.green)
         .border(Color.green)
         Button("Delete Last") {
-          currentArray.removeLast()
+          if currentArray.count > 0 {
+            currentArray.removeLast()
+            inputText = ""
+          }
         }
         .padding()
         .foregroundColor(.red)
         .border(Color.red)
         Button("Clear") {
           currentArray = []
+          inputText = ""
         }
         .padding()
         .foregroundColor(.blue)
@@ -38,8 +43,9 @@ struct AlgorithmDetail: View {
         
       }
       TextField("Input a value", text: $inputText, onCommit: {
-        if item.validateInput(_input: inputText) {
+        if item.validateInput(inputText) {
           currentArray.append(inputText)
+          inputText = ""
         } else {
           outputText = "Invalid Integer, please try again"
         }
@@ -50,12 +56,12 @@ struct AlgorithmDetail: View {
       Text("Current input: " + self.currentArray.debugDescription)
       Text("Final: " + outputText)
     }
-    
+    .navigationBarTitle(title)
   }
 }
 
 struct AlgorithmDetail_Previews: PreviewProvider {
   static var previews: some View {
-    AlgorithmDetail(item: Quicksort(algorithms: Algorithms()))
+    AlgorithmDetail(item: Quicksort(algorithms: Algorithms()), title: "QuickSort")
   }
 }

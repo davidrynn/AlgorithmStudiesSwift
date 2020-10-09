@@ -10,9 +10,6 @@ import Foundation
 
 struct Helpers {
 
-  static func validateStringAsInteger(_ input: String) -> Bool {
-    return Int(input) != nil
-  }
 
 }
 
@@ -23,7 +20,7 @@ extension Array where Element == String {
 }
 
 extension String {
-  func isValidInteger(_ input: String) -> Bool {
+  func isValidInteger() -> Bool {
     return Int(self) != nil
   }
 }

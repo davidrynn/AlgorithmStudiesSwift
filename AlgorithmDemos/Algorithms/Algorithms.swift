@@ -223,8 +223,8 @@ struct Quicksort: AlgorithmItem {
   var id = "Quicksort"
   var algorithms: Algorithms
 
-  func getAlgorithmOutput(input: [Int]) -> String {
-    let qsarray = input
+  func getAlgorithmOutput(input: [String]) -> String {
+    let qsarray = input.convertToIntegers()
     let firstPart = qsarray.debugDescription
     let ordered = algorithms.quickSort(qsarray, iterations: 0)
     let secondPart = ordered.array.debugDescription
@@ -235,6 +235,11 @@ struct Quicksort: AlgorithmItem {
       + "\nwith \(ordered.iterations) iterations"
   }
 
+  func validateInput(_ input: Any) -> Bool {
+    guard let inputString = input as? String else { return false }
+    return inputString.isValidInteger()
+  }
+
 }
 
 struct BubbleSort: AlgorithmItem {
@@ -243,7 +248,7 @@ struct BubbleSort: AlgorithmItem {
   var algorithms: Algorithms
 
   func getAlgorithmOutput(input: [String]) -> String {
-    let unordered = Helpers
+    let unordered = input.convertToIntegers()
     let ordered = algorithms.bubbleSort(unordered: unordered)
     guard input.count > 1 else { return input.description }
     var iterationsString = "Iterations \(unordered):\n"
@@ -254,16 +259,28 @@ struct BubbleSort: AlgorithmItem {
     return iterationsString
   }
   func validateInput(_ input: Any) -> Bool {
-    return Helpers.validateStringAsInteger(input)
+    guard let inputString = input as? String else { return false }
+    return inputString.isValidInteger()
   }
 }
 
 struct ConvertRomanNumerals: AlgorithmItem {
+
+  func validateInput(_ input: Any) -> Bool {
+    guard let inputString = input as? String,  inputString.range(of: "^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$", options: .regularExpression) != nil else {
+              return false
+          }
+    return true
+  }
+
   var id = "Convert Roman Numerals"
   var algorithms: Algorithms
 
-  func getAlgorithmOutput(input: [Int]) -> String {
-    return "IV is " + algorithms.convertRoman("IV").description
+  func getAlgorithmOutput(input: [String]) -> String {
+    guard let first = input.first, input.count > 1 else {
+      return "Invalid input"
+    }
+    return first + " is " + algorithms.convertRoman(first).description
   }
 
 }
@@ -272,9 +289,13 @@ struct PalindromeNumberCheck: AlgorithmItem {
   var id: String = "Check if a number is a palindrome"
   var algorithms: Algorithms
 
-  func getAlgorithmOutput(input: [Int]) -> String {
-    let number = 211232112
+  func getAlgorithmOutput(input: [String]) -> String {
+    let number = input.joined()
     let isPalindrome: String = algorithms.isPalindromeNumber(211232112) ? "a palindrome" : "not a palindrome"
     return "\(number) is \(isPalindrome)"
+  }
+  func validateInput(_ input: Any) -> Bool {
+    guard let inputString = input as? String else { return false }
+    return inputString.isValidInteger()
   }
 }

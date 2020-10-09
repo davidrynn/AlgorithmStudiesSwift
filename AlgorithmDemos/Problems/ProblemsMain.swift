@@ -16,7 +16,7 @@ struct ProblemsMain: View {
     ]
   var body: some View {
     List(algorithmsArray, id: \.id) { item in
-      NavigationLink(destination: AlgorithmDetail(item: item) ) {
+      NavigationLink(destination: AlgorithmDetail(item: item, title: item.id) ) {
         Text(item.id)
       }
     }
