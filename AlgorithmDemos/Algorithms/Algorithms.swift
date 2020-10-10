@@ -131,7 +131,7 @@ struct Algorithms {
       }
       if last < current {
         //error code
-        guard (last == 0 || (current/last == 10 && (current/10 % 10 == 0 ))) || (current/last == 5 && ((current/5 % 10 == 0 ) || current/5 == 1)) else {
+        guard (last == 0 || (current/last == 10 && (10 % current/10 == 0 ))) || (current/last == 5 && ((current/5 % 10 == 0 ) || current/5 == 1)) else {
           print("Invalid precedent")
           return
         }
@@ -277,7 +277,8 @@ struct ConvertRomanNumerals: AlgorithmItem {
   var algorithms: Algorithms
 
   func getAlgorithmOutput(input: [String]) -> String {
-    guard let first = input.first, input.count > 1 else {
+
+    guard input.count > 0, let first = input.first else {
       return "Invalid input"
     }
     return first + " is " + algorithms.convertRoman(first).description
