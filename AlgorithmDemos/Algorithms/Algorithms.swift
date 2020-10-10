@@ -291,10 +291,11 @@ struct PalindromeNumberCheck: AlgorithmItem {
   var algorithms: Algorithms
 
   func getAlgorithmOutput(input: [String]) -> String {
-    let number = input.joined()
-    let isPalindrome: String = algorithms.isPalindromeNumber(211232112) ? "a palindrome" : "not a palindrome"
+    guard let number = Int(input.joined()) else { return "unable to convert" }
+    let isPalindrome: String = algorithms.isPalindromeNumber(number) ? "a palindrome" : "not a palindrome"
     return "\(number) is \(isPalindrome)"
   }
+
   func validateInput(_ input: Any) -> Bool {
     guard let inputString = input as? String else { return false }
     return inputString.isValidInteger()
